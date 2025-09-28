@@ -1,29 +1,23 @@
 {
-    "name": "Java 21 Development Environment",
-    "build": {
-        "dockerfile": "../Dockerfile",
-        "context": ".."
+    "name": "LiquidBounce Ubuntu Java 21",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "21",
+            "jdkDistro": "openjdk"
+        },
+        "ghcr.io/devcontainers/features/sshd:1": {
+            "version": "latest"
+        }
     },
     "customizations": {
         "vscode": {
             "extensions": [
                 "vscjava.vscode-java-pack",
-                "redhat.java",
-                "vmware.vscode-spring-boot",
-                "ms-vscode.vscode-json",
-                "esbenp.prettier-vscode"
-            ],
-            "settings": {
-                "java.home": "/usr/lib/jvm/java-21-openjdk-amd64",
-                "java.configuration.runtimes": [
-                    {
-                        "name": "JavaSE-21",
-                        "path": "/usr/lib/jvm/java-21-openjdk-amd64"
-                    }
-                ]
-            }
+                "vscjava.vscode-gradle"
+            ]
         }
     },
-    "postCreateCommand": "echo 'Java 21 environment is ready!' && java -version",
-    "remoteUser": "root"
+    "postCreateCommand": "java -version && chmod +x gradlew && ./gradlew --version",
+    "remoteUser": "vscode"
 }
