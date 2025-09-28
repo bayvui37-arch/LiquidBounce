@@ -1,8 +1,13 @@
 {
-  "name": "LiquidBounce - Ubuntu25 + Temurin21",
+  "name": "LiquidBounce - Ubuntu Rolling + Java 21",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
+    }
   },
   "runArgs": [
     "--cap-add=SYS_PTRACE",
@@ -11,14 +16,15 @@
   ],
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash",
-    "java.home": "/opt/temurin"
+    "java.home": "/usr/lib/jvm/temurin-21-jdk-amd64"
   },
   "extensions": [
     "redhat.java",
     "vscjava.vscode-java-debug",
     "vscjava.vscode-java-test",
+    "ms-python.python",
     "vscjava.vscode-gradle",
-    "ms-python.python"
+    "ms-azuretools.vscode-docker"
   ],
   "remoteUser": "vscode",
   "workspaceFolder": "/workspace",
