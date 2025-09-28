@@ -1,0 +1,29 @@
+{
+    "name": "Java 21 Development Environment",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "redhat.java",
+                "vmware.vscode-spring-boot",
+                "ms-vscode.vscode-json",
+                "esbenp.prettier-vscode"
+            ],
+            "settings": {
+                "java.home": "/usr/lib/jvm/java-21-openjdk-amd64",
+                "java.configuration.runtimes": [
+                    {
+                        "name": "JavaSE-21",
+                        "path": "/usr/lib/jvm/java-21-openjdk-amd64"
+                    }
+                ]
+            }
+        }
+    },
+    "postCreateCommand": "echo 'Java 21 environment is ready!' && java -version",
+    "remoteUser": "root"
+}
