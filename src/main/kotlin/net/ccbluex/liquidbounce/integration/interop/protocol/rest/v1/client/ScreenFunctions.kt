@@ -83,6 +83,13 @@ fun putScreen(requestObject: RequestObject): FullHttpResponse {
     val body = requestObject.asJson<JsonObject>()
     val screenName = body["name"]?.asString ?: return httpForbidden("No screen name")
 
+    if (screenName == "singleplayer") {
+        mc.execute {
+            mc.setScreen(net.ccbluex.liquidbounce.features.ui.SingleplayerScreen())
+        }
+        return httpNoContent()
+    }
+
     VirtualScreenType.byName(screenName)?.open()
         ?: return httpForbidden("No screen with name $screenName")
     return httpNoContent()
