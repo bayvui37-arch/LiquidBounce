@@ -98,6 +98,10 @@ repositories {
         name = "Lenni0451"
         url = uri("https://maven.lenni0451.net/everything")
     }
+    maven {
+        name = "WispForest"
+        url = uri("https://maven.wispforest.io")
+    }
 }
 
 loom {
@@ -113,6 +117,7 @@ dependencies {
     modApi("net.fabricmc:fabric-loader:${project.property("loader_version")}")
     modApi("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
     modApi("net.fabricmc:fabric-language-kotlin:${project.property("fabric_kotlin_version")}")
+    modApi("io.wispforest:owo-lib:${project.property("owo_lib_version")}")
 
     // Mod menu
     modApi("com.terraformersmc:modmenu:${project.property("mod_menu_version")}")
